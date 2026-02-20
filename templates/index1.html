@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raise Ticket</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+    <script src="{{ url_for('static', filename='script1.js') }}"></script>
+    <style>
+        .error-message {
+            background-color: #ff4444;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            animation: shake 0.5s;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input, select, textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        select {
+            padding: 10px 12px;
+            border-radius: 40px;
+            border: 1px solid #ccc;
+            background-color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        optgroup {
+            font-weight: bold;
+            font-style: normal;
+            color: #555;
+        }
+        
+        .product-hint {
+            font-size: 12px;
+            color: #0066cc;
+            background-color: #e6f2ff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            display: none;
+            border-left: 3px solid #0066cc;
+        }
+        
+        .description-feedback {
+            font-size: 12px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .feedback-valid {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .feedback-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Tell us your Issue</h1>
+    <p>Fill out the form below.</p>
+    
+    {% if error %}
+    <div class="error-message">{{ error }}</div>
+    {% endif %}
+    
+    <form method="POST" action="{{ url_for('submit_ticket') }}" onsubmit="return validateForm()">
+        <label>Name</label>
+        <input type="text" name="name" required minlength="2" maxlength="100" 
+               placeholder="Enter your full name">
+
+        <label>Email</label>
+        <input type="email" name="email" required maxlength="100"
+               placeholder="your.email@example.com">
+
+        <label>Product Purchased</label>
+        <select name="product" id="product-select" required onchange="showProductHint(this.value)">
+            <option value="">-- Select Your Product --</option>
+            <optgroup label="💻 Computers">
+                <option value="laptop">Laptop</option>
+                <option value="desktop">Desktop Computer</option>
+                <option value="gaming pc">Gaming PC</option>
+            </optgroup>
+            <optgroup label="📱 Mobile Devices">
+                <option value="phone">Phone/Mobile</option>
+                <option value="tablet">Tablet</option>
+                <option value="smartwatch">Smartwatch</option>
+            </optgroup>
+            <optgroup label="🖥️ Displays & Peripherals">
+                <option value="monitor">Monitor/Display</option>
+                <option value="keyboard">Keyboard</option>
+                <option value="mouse">Mouse</option>
+            </optgroup>
+            <optgroup label="🎧 Audio Devices">
+                <option value="headphone">Headphone/Headset</option>
+                <option value="speaker">Speaker/Soundbar</option>
+                <option value="microphone">Microphone</option>
+            </optgroup>
+            <optgroup label="📷 Imaging & Printing">
+                <option value="camera">Camera</option>
+                <option value="webcam">Webcam</option>
+                <option value="printer">Printer</option>
+            </optgroup>
+            <optgroup label="🌐 Networking">
+                <option value="router">Router/Modem</option>
+            </optgroup>
+            <optgroup label="🔌 Accessories">
+                <option value="charger">Charger/Power Adapter</option>
+                <option value="cable">Cable/Connector</option>
+            </optgroup>
+        </select>
+        <div id="product-hint" class="product-hint"></div>
+
+        <label>Date of Purchase</label>
+        <input type="date" name="dop" required 
+               style="width: 100%; padding: 10px 12px; border-radius: 40px; border: 1px solid #ccc;">
+
+        <label>Issue Description</label>
+        <textarea name="description" id="description" rows="5" required 
+                  minlength="10" maxlength="500"
+                  placeholder="Describe your issue in detail. Please mention the product and what's wrong with it."
+                  oninput="validateDescriptionRealtime()"></textarea>
+        <div id="description-feedback" class="description-feedback"></div>
+
+        <button type="submit">Submit Ticket</button>
+    </form>
+    
+    <a href="{{ url_for('user_homepage') }}" class="back-link">&larr; Back to Dashboard</a>
+</div>
+</body>
+</html>

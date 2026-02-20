@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}?v=2">
+</head>
+<body>
+
+<div class="homepage">
+    <div class="home-layout">
+
+        <div class="home-illustration">
+            <img src="{{ url_for('static', filename='images/headset.png') }}" alt="Support">
+        </div>
+
+        <div class="home-content">
+            <h1>Need help?</h1>
+            <p>Issues, organized</p>
+
+            {% if message %}
+                <div style="background: #e8f5e9; padding: 15px; border-radius: 10px; border: 1px solid #c8e6c9; margin-bottom: 20px;">
+                    <p style="color: #2e7d32; font-weight: bold; margin: 0;">{{ message }}</p>
+                    {% if new_id %}
+                        <p style="font-size: 13px; margin-top: 5px; color: #555;">ID: <strong>{{ new_id }}</strong> (Save this!)</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            <div class="home-actions">
+                <a href="{{ url_for('ticket_form') }}" class="home-btn">Create a Ticket</a>
+                <a href="{{ url_for('status_page') }}" class="home-btn">Check Ticket Status</a>
+            </div>
+            
+            <a href="/" class="logout-btn-user">Sign Out</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

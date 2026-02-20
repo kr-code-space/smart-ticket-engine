@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+
+<div class="index-wrapper">
+    <h1 class="index-title">
+        Customer Support<br>
+        Ticketing System
+    </h1>
+
+    <div class="index-actions">
+        <a href="{{ url_for('login_page') }}" class="index-btn">User</a>
+        <a href="{{ url_for('login_page', role='admin') }}" class="index-btn">Admin</a>
+    </div>
+</div>
+
+</body>
+</html>

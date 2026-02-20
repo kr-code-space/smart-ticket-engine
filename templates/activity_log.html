@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Activity Log</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .admin-info {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: inline-block;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid;
+        }
+        
+        .stat-card.total { border-left-color: #3498db; }
+        .stat-card.resolved { border-left-color: #27ae60; }
+        .stat-card.priority { border-left-color: #e67e22; }
+        .stat-card.logins { border-left-color: #9b59b6; }
+        
+        .stat-card h3 {
+            font-size: 14px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        
+        .stat-card .value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        thead {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        tbody tr:hover {
+            background: #f8f9fa;
+        }
+        
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .action-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .action-LOGIN { background: #d5f5e3; color: #27ae60; }
+        .action-LOGOUT { background: #fadbd8; color: #e74c3c; }
+        .action-VIEW_DASHBOARD { background: #e8daef; color: #9b59b6; }
+        .action-RESOLVE_TICKET { background: #d6eaf8; color: #2980b9; }
+        .action-CHANGE_PRIORITY { background: #fdebd0; color: #e67e22; }
+        
+        .timestamp {
+            color: #7f8c8d;
+            font-size: 13px;
+        }
+        
+        .admin-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .username {
+            color: #7f8c8d;
+            font-size: 12px;
+        }
+        
+        .ticket-id {
+            background: #3498db;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #95a5a6;
+        }
+        
+        .empty-state svg {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Admin Activity Log</h1>
+            <p>Complete audit trail of all administrative actions</p>
+            <div class="admin-info">
+                👤 Logged in as: <strong>{{ admin_name }}</strong>
+            </div>
+        </div>
+        
+        {% if activities %}
+        <div class="stats-grid">
+            <div class="stat-card total">
+                <h3>Total Activities</h3>
+                <div class="value">{{ activities|length }}</div>
+            </div>
+            <div class="stat-card resolved">
+                <h3>Tickets Resolved</h3>
+                <div class="value">{{ activities|selectattr('action_type', 'equalto', 'RESOLVE_TICKET')|list|length }}</div>
+            </div>
+            <div class="stat-card priority">
+                <h3>Priority Changes</h3>
+                <div class="value">{{ activities|selectattr('action_type', 'equalto', 'CHANGE_PRIORITY')|list|length }}</div>
+            </div>
+            <div class="stat-card logins">
+                <h3>Admin Logins</h3>
+                <div class="value">{{ activities|selectattr('action_type', 'equalto', 'LOGIN')|list|length }}</div>
+            </div>
+        </div>
+        {% endif %}
+        
+        <div class="content">
+            <div class="actions">
+                <a href="{{ url_for('admin_dashboard') }}" class="btn btn-primary">← Back to Dashboard</a>
+                <a href="{{ url_for('admin_logout') }}" class="btn btn-danger">Logout</a>
+            </div>
+            
+            {% if activities %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Admin</th>
+                        <th>Action</th>
+                        <th>Ticket ID</th>
+                        <th>Details</th>
+                        <th>IP Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for activity in activities %}
+                    <tr>
+                        <td class="timestamp">{{ activity.timestamp }}</td>
+                        <td>
+                            <div class="admin-name">{{ activity.admin_name }}</div>
+                            <div class="username">@{{ activity.admin_username }}</div>
+                        </td>
+                        <td>
+                            <span class="action-badge action-{{ activity.action_type }}">
+                                {{ activity.action_type.replace('_', ' ') }}
+                            </span>
+                        </td>
+                        <td>
+                            {% if activity.ticket_id %}
+                            <span class="ticket-id">#{{ activity.ticket_id }}</span>
+                            {% else %}
+                            <span style="color: #bdc3c7;">—</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ activity.details or '—' }}</td>
+                        <td class="timestamp">{{ activity.ip_address }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div class="empty-state">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <h3>No Activity Yet</h3>
+                <p>Admin actions will appear here once activities are logged.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

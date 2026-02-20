@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}?v=4">
+</head>
+<body>
+
+<div class="container auth-card">
+
+    <h2 class="auth-title">Create Account</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="message {{ category }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('do_signup') }}" method="POST">
+        <input type="text" 
+               name="username" 
+               placeholder="Username ( Alphabets & _ )" 
+               pattern="[a-zA-Z_ ]{3,20}" 
+               required>
+
+        <input type="password" name="password" placeholder="Choose a Password" required>
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="auth-footer">
+        <a href="{{ url_for('login_page') }}" class="secondary-btn">
+            ← Back to Login
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
