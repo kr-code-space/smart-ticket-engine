@@ -1,0 +1,171 @@
+{
+  "products": {
+    "laptop": {
+      "display_name": "Laptop",
+      "category": "Computers",
+      "keywords": [
+        "screen", "display", "keyboard", "battery", "charger", "power",
+        "boot", "startup", "overheat", "hot", "fan", "touchpad", "wifi",
+        "usb", "slow", "lag", "freeze", "crash", "broken", "not working"
+      ],
+      "hint": "Tip: Mention what's wrong (e.g., screen, battery, keyboard)"
+    },
+    "desktop": {
+      "display_name": "Desktop Computer",
+      "category": "Computers",
+      "keywords": [
+        "screen", "monitor", "keyboard", "mouse", "power", "boot",
+        "startup", "overheat", "fan", "usb", "slow", "freeze", "crash",
+        "broken", "not working"
+      ],
+      "hint": "Tip: Describe the issue (e.g., won't turn on, USB not working)"
+    },
+    "gaming pc": {
+      "display_name": "Gaming PC",
+      "category": "Computers",
+      "keywords": [
+        "game", "fps", "performance", "lag", "freeze", "graphics", "card",
+        "ram", "crash", "slow", "overheat", "broken", "not working"
+      ],
+      "hint": "Tip: Gaming issue? (e.g., low FPS, crashes, overheating)"
+    },
+    "phone": {
+      "display_name": "Phone/Mobile",
+      "category": "Mobile Devices",
+      "keywords": [
+        "screen", "battery", "charging", "charge", "camera", "display",
+        "touch", "call", "speaker", "microphone", "wifi", "mobile",
+        "signal", "crack", "broken", "not working"
+      ],
+      "hint": "Tip: What's the problem? (e.g., screen, battery, camera)"
+    },
+    "tablet": {
+      "display_name": "Tablet",
+      "category": "Mobile Devices",
+      "keywords": [
+        "screen", "battery", "charging", "charge", "display", "touch",
+        "camera", "wifi", "broken", "not working"
+      ],
+      "hint": "Tip: Describe the issue (e.g., screen, battery, touch)"
+    },
+    "smartwatch": {
+      "display_name": "Smartwatch",
+      "category": "Mobile Devices",
+      "keywords": [
+        "screen", "battery", "charging", "charge", "strap", "fitness",
+        "heart", "step", "sync", "notification", "broken", "not working"
+      ],
+      "hint": "Tip: What's wrong? (e.g., not charging, not syncing)"
+    },
+    "monitor": {
+      "display_name": "Monitor/Display",
+      "category": "Displays & Peripherals",
+      "keywords": [
+        "screen", "display", "pixel", "color", "brightness", "flicker",
+        "power", "cable", "input", "hdmi", "vga", "blank", "black",
+        "broken", "not working"
+      ],
+      "hint": "Tip: What's wrong with the display? (e.g., flickering, no signal)"
+    },
+    "keyboard": {
+      "display_name": "Keyboard",
+      "category": "Displays & Peripherals",
+      "keywords": [
+        "key", "type", "typing", "stuck", "button", "press", "backlight",
+        "wireless", "connection", "connect", "broken", "not working"
+      ],
+      "hint": "Tip: Which keys? (e.g., some keys not working, connection issue)"
+    },
+    "mouse": {
+      "display_name": "Mouse",
+      "category": "Displays & Peripherals",
+      "keywords": [
+        "click", "cursor", "scroll", "button", "wireless", "connection",
+        "battery", "movement", "tracking", "pointer", "broken", "not working"
+      ],
+      "hint": "Tip: What's the issue? (e.g., cursor jumpy, not clicking)"
+    },
+    "headphone": {
+      "display_name": "Headphone/Headset",
+      "category": "Audio Devices",
+      "keywords": [
+        "sound", "audio", "ear", "volume", "bass", "treble", "noise",
+        "connection", "bluetooth", "wire", "jack", "music", "hear",
+        "listen", "crack", "static", "left", "right", "broken", "not working"
+      ],
+      "hint": "Tip: Audio problem? (e.g., no sound, one ear not working)"
+    },
+    "speaker": {
+      "display_name": "Speaker/Soundbar",
+      "category": "Audio Devices",
+      "keywords": [
+        "sound", "audio", "volume", "bass", "treble", "bluetooth",
+        "connection", "music", "noise", "distort", "broken", "not working"
+      ],
+      "hint": "Tip: Audio issue? (e.g., no sound, distorted)"
+    },
+    "microphone": {
+      "display_name": "Microphone",
+      "category": "Audio Devices",
+      "keywords": [
+        "audio", "sound", "voice", "recording", "volume", "static",
+        "noise", "mute", "broken", "not working", "detect"
+      ],
+      "hint": "Tip: Audio issue? (e.g., no sound, static)"
+    },
+    "camera": {
+      "display_name": "Camera",
+      "category": "Imaging & Printing",
+      "keywords": [
+        "photo", "picture", "lens", "focus", "zoom", "shutter", "memory",
+        "card", "battery", "flash", "blur", "broken", "not working"
+      ],
+      "hint": "Tip: Camera issue? (e.g., won't turn on, blurry photos)"
+    },
+    "webcam": {
+      "display_name": "Webcam",
+      "category": "Imaging & Printing",
+      "keywords": [
+        "camera", "video", "picture", "focus", "quality", "microphone",
+        "zoom", "skype", "teams", "broken", "not working", "detect"
+      ],
+      "hint": "Tip: Camera problem? (e.g., not detected, poor quality)"
+    },
+    "printer": {
+      "display_name": "Printer",
+      "category": "Imaging & Printing",
+      "keywords": [
+        "print", "paper", "ink", "toner", "jam", "scan", "copy", "feed",
+        "cartridge", "quality", "connect", "error", "broken", "not working"
+      ],
+      "hint": "Tip: Printing problem? (e.g., paper jam, poor quality)"
+    },
+    "router": {
+      "display_name": "Router/Modem",
+      "category": "Networking",
+      "keywords": [
+        "internet", "wifi", "connection", "network", "speed", "signal",
+        "wireless", "lan", "wan", "slow", "disconnect", "broken", "not working"
+      ],
+      "hint": "Tip: Connection issue? (e.g., no internet, slow WiFi)"
+    },
+    "charger": {
+      "display_name": "Charger/Power Adapter",
+      "category": "Accessories",
+      "keywords": [
+        "charge", "charging", "power", "cable", "adapter", "hot",
+        "overheat", "loose", "broken", "not working"
+      ],
+      "hint": "Tip: Charging problem? (e.g., not charging, overheating)"
+    },
+    "cable": {
+      "display_name": "Cable/Connector",
+      "category": "Accessories",
+      "keywords": [
+        "connect", "connection", "loose", "broken", "damage", "transfer",
+        "charge", "data", "not working"
+      ],
+      "hint": "Tip: Connection issue? (e.g., loose, not working)"
+    }
+  }
+}

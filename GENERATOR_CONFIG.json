@@ -1,0 +1,50 @@
+{
+  "first_names": [
+    "Aarav", "Vihaan", "Aditya", "Sai", "Arjun", "Rohan", "Ishaan", "Reyansh", "Vivaan", "Mohammed",
+    "Rahul", "Amit", "Sandeep", "Vikram", "Kunal", "Raj", "Sanjay", "Vivek", "Anil", "Sunil",
+    "Aditi", "Sanya", "Diya", "Ananya", "Pari", "Riya", "Anjali", "Kavya", "Ishita", "Neha",
+    "Priya", "Sneha", "Pooja", "Nisha", "Aisha", "Fatima", "Zara", "Yasmin", "Sarah", "Emily",
+    "James", "John", "Robert", "Michael", "William", "David", "Richard", "Joseph", "Thomas", "Charles",
+    "Min", "Ji-woo", "Seo-jun", "Ha-yoon", "Do-hyun", "Min-jun", "Seok-jin", "Jungkook", "Taehyung", "Jimin"
+  ],
+  "last_names": [
+    "Sharma", "Verma", "Gupta", "Malhotra", "Bhatia", "Saxena", "Mehta", "Jain", "Agarwal", "Singh",
+    "Patel", "Reddy", "Nair", "Rao", "Iyer", "Kumar", "Das", "Roy", "Banerjee", "Ghosh",
+    "Mondal", "Biswas", "Chakraborty", "Mukherjee", "Chatterjee", "Dutta", "Sen", "Bose", "Mishra", "Pandey",
+    "Khan", "Ahmed", "Ali", "Hussain", "Shaikh", "Pathan", "Siddiqui", "Qureshi", "Ansari", "Mirza",
+    "Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez",
+    "Kim", "Lee", "Park", "Choi", "Jeong", "Kang", "Cho", "Yoon", "Jang", "Lim"
+  ],
+  "domains": [
+    "gmail.com", "yahoo.com", "outlook.com", "hotmail.com", "live.com", "icloud.com"
+  ],
+  "suffixes": [
+    "is malfunctioning", "has stopped working", "is giving trouble", "is completely dead", 
+    "is physically damaged", "is not responding", "keeps failing", "is overheating"
+  ],
+  "details": [
+    "happened after latest update", "device is only 2 months old", "need urgent replacement", 
+    "tried restarting but failed", "spilled water accidentally", "warranty expired?", 
+    "please help ASAP", "affecting my work", "very frustrating", "I need a refund"
+  ],
+  "products": {
+    "laptop": { "keywords": ["screen", "display", "keyboard", "battery", "charger", "power button", "cooling fan", "touchpad", "wifi adapter", "usb port", "hard drive"] },
+    "desktop": { "keywords": ["monitor", "keyboard", "mouse", "power supply", "cooling fan", "usb port", "motherboard", "graphics card"] },
+    "gaming pc": { "keywords": ["graphics card", "RAM stick", "cooling fan", "power supply", "motherboard", "processor"] },
+    "phone": { "keywords": ["screen", "battery", "charging port", "camera lens", "touch screen", "speaker", "microphone", "wifi antenna", "sim card slot"] },
+    "tablet": { "keywords": ["screen", "battery", "charging port", "touch screen", "camera", "wifi adapter"] },
+    "smartwatch": { "keywords": ["battery", "charging dock", "wrist strap", "heart rate sensor", "screen", "bluetooth connection"] },
+    "monitor": { "keywords": ["screen panel", "pixel", "power cable", "hdmi port", "display port"] },
+    "keyboard": { "keywords": ["spacebar", "enter key", "backlight", "wireless receiver", "usb cable"] },
+    "mouse": { "keywords": ["left click", "scroll wheel", "wireless receiver", "laser sensor"] },
+    "headphone": { "keywords": ["left ear cup", "right ear cup", "volume button", "bass driver", "bluetooth", "audio jack"] },
+    "speaker": { "keywords": ["woofer", "tweeter", "volume knob", "bluetooth connection", "power cable"] },
+    "microphone": { "keywords": ["audio input", "mute button", "usb connector", "pop filter"] },
+    "camera": { "keywords": ["lens", "focus ring", "zoom lens", "shutter button", "memory card slot", "flash unit", "battery door"] },
+    "webcam": { "keywords": ["lens", "focus ring", "mounting clip", "usb cable"] },
+    "printer": { "keywords": ["paper tray", "ink cartridge", "scanner glass", "power cable", "wifi connection"] },
+    "router": { "keywords": ["antenna", "power adapter", "ethernet port", "wifi signal"] },
+    "charger": { "keywords": ["connector tip", "adapter brick", "cable insulation"] },
+    "cable": { "keywords": ["connector head", "insulation", "wire"] }
+  }
+}

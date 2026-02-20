@@ -1,0 +1,56 @@
+# Sensitive CSV data files
+admin_activity_log.csv
+customer_support_tickets_updated.csv
+resolved_tickets.csv
+pending_tickets.csv
+admins.csv
+users.csv
+
+# Log files
+*.log
+*.txt
+escalation_log.txt
+error_log.txt
+overflow_log.txt
+duplicate_tickets.log
+admin_commands.txt
+
+# Credentials file
+CREDENTIALS.md
+
+# Environment variables
+.env
+.env.local
+*.env
+
+# Compiled binaries
+*.exe
+*.o
+*.out
+engine
+data_generator
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# IDE and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Keep sample datasets for reference
+!synthetic_data.csv
+!keggle_sample_dataset_updated.csv
