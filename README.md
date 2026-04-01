@@ -23,7 +23,7 @@ The project was built to apply data structures in a practical application and un
 - **Auto-Escalation** — tickets automatically climb Low → Medium → High → Critical every 24 hours; any ticket older than 72h is force-escalated to Critical regardless of starting priority
 - **Duplicate Detection** — prevents spam by blocking same-email + similar-issue resubmissions
 - **Multi-Admin System** — 5 role-based admin accounts with timestamped activity audit logs
-
+- **Customer History** — retrieves a customer's past tickets on new submission for context
 
 **Engineering Quality**
 - **12 Unit Tests** — cover queue init, FIFO ordering, circular wraparound, overflow/underflow, and all input validators
